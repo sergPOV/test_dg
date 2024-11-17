@@ -1,0 +1,14 @@
+# Автоматическая нормализация окончания строк для всех текстовых файлов
+* text=auto
+
+# Специфичные настройки для файлов вашего проекта
+*.js text
+*.jsx text
+*.ts text
+*.tsx text
+*.json text
+*.md text
+*.css text
+*.html text
+*.yaml text
+*.yml text
