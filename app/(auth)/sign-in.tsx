@@ -25,8 +25,8 @@ const submit = () =>{
       <ScrollView>
         <View className="w-full justify-center min-h-[85vh] px-4 my-6">
 
-        <Text className="w-115px h-[35px] text-white text-3xl">Мобильный дрессировщик</Text>
-        <Text className="text-2xl text-blue-500 mt-10 font-psemibold">Войдите в аккаунт</Text>
+        <Text className="w-115px h-[35px] text-gray-700 font-pbold text-3xl text-center">Мобильный дрессировщик</Text>
+        <Text className="text-2xl text-gray-700 mt-10 font-psemibold">Войдите в аккаунт</Text>
 
       <FormField 
       title="Электронная почта"
@@ -35,7 +35,7 @@ const submit = () =>{
       otherStyles="mt-7"
       keyboardType="email-address"
       />
-      <FormField 
+      <FormField
       title="Пароль"
       value={form.password}
       handleChangeText={(e)=> setForm({...form, password: e})}
@@ -49,10 +49,10 @@ const submit = () =>{
       isLoading={isSubmitting}
       />
       <View className="justify-center pt-5 flex-row gap-2">
-        <Text className="text-lg text-gray-100 font-pregular">
+        <Text className="text-lg text-gray font-pregular">
           У вас нет аккаунта?
         </Text>
-        <Link href="/(auth)/sign-up" className="text-lg font-psemibold text-secondary">Зарегистрируйтесь!</Link>
+        <Link href="/(auth)/sign-up" className="text-lg font-psemibold text-secondary-100">Зарегистрируйтесь!</Link>
       </View>
 
         </View>

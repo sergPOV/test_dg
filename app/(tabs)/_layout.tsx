@@ -1,5 +1,5 @@
 import { View, Text, Image } from 'react-native';
-import { Tabs } from 'expo-router';
+import { Tabs, Stack } from 'expo-router';
 import { icons } from '../../constants';
 
 interface TabIconProps {
@@ -15,10 +15,14 @@ const TabIcon: React.FC<TabIconProps> = ({ icon, color, name, focused }) => {
       <Image
         source={icon}
         resizeMode="contain"
-        style={{ tintColor: color }}  
-        className="w-6 h-6"
+        style={{ tintColor: color, marginTop: 50 }}  
+        className="w-9 h-9"
       />
-      <Text className={`${focused ? 'font-psemibold' : 'font-pregular'} text-xs`} style={{ color: color }}>
+      <Text
+        className={`${focused ? 'font-psemibold' : 'font-pregular'} text-[10px]`}
+        style={{ color, width: 50, textAlign: 'center' }} // Устанавливаем фиксированную ширину и выравнивание текста
+        numberOfLines={1} // Ограничиваем текст одной строкой
+      >
         {name}
       </Text>
     </View>
@@ -31,10 +35,10 @@ const TabsLayout: React.FC = () => {
     <Tabs
       screenOptions={{
         tabBarShowLabel: false,
-        tabBarActiveTintColor: '#00FFFF',
+        tabBarActiveTintColor: '#00FF99',
         tabBarInactiveTintColor: '#CDCDE0',
         tabBarStyle: {
-          backgroundColor: '#161622',
+          backgroundColor: '#616161',
           borderTopWidth: 1,
           borderTopColor: '#232533',
           height: 84,
@@ -42,40 +46,43 @@ const TabsLayout: React.FC = () => {
       }}
     >
       <Tabs.Screen
-        name="home"
+        name="course"
         options={{
-          title: 'Главная',
-          headerShown: false,
+          title: 'Курсы',
+          headerShown: true,
           tabBarIcon: ({ color, focused }) => (
-            <TabIcon icon={icons.home} 
+            <TabIcon icon={icons.course} 
             color={color} 
-            name="Главная" 
+            name="Курсы" 
             focused={focused} />
           ),
         }}
       />
+
+    <Tabs.Screen
+            name="home"
+            options={{
+              title: 'Главная',
+              headerShown: true,
+              tabBarIcon: ({ color, focused }) => (
+                <TabIcon icon={icons.doghouse} 
+                color={color} 
+                name="Главная" 
+                focused={focused} />
+              ),
+            }}
+          />
+      
+      
       <Tabs.Screen
-        name="bookmark"
+        name="kalendar"
         options={{
-          title: 'Закладка',
-          headerShown: false,
+          title: 'Календарь',
+          headerShown: true,
           tabBarIcon: ({ color, focused }) => (
-            <TabIcon icon={icons.bookmark} 
+            <TabIcon icon={icons.kalendar} 
             color={color} 
-            name="Закладка" 
-            focused={focused} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="create"
-        options={{
-          title: 'Создать',
-          headerShown: false,
-          tabBarIcon: ({ color, focused }) => (
-            <TabIcon icon={icons.plus} 
-            color={color} 
-            name="Создать" 
+            name="Календарь" 
             focused={focused} />
           ),
         }}
@@ -84,9 +91,9 @@ const TabsLayout: React.FC = () => {
         name="profile"
         options={{
           title: 'Профиль',
-          headerShown: false,
+          headerShown: true,
           tabBarIcon: ({ color, focused }) => (
-            <TabIcon icon={icons.profile} 
+            <TabIcon icon={icons.user} 
             color={color} 
             name="Профиль" 
             focused={focused} />
